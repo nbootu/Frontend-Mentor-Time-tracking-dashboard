@@ -1,0 +1,44 @@
+/* CSS variables */
+:root {
+  /* Fonts */
+  --font: 'Rubik', system-ui, sans-serif;
+  --font-size-1: 1.125rem;
+  --font-size-2: 1.25rem;
+  --font-weight-1: 300;
+  --font-weight-2: 400;
+  --font-weight-3: 500;
+  --font-lineheight-1: 1.5;
+  --font-lineheight-2: 1.25;
+
+  /* Colors */
+  --surface-1: hsl(246, 80%, 60%);
+
+  --header-1: hsl(15, 100%, 70%);
+  --header-2: hsl(195, 74%, 62%);
+  --header-3: hsl(348, 100%, 68%);
+  --header-4: hsl(145, 58%, 55%);
+  --header-5: hsl(264, 64%, 52%);
+  --header-6: hsl(43, 84%, 65%);
+
+  --accent-1: hsl(236, 100%, 87%);
+  --accent-2: hsl(235, 45%, 61%);
+  --accent-3: hsl(235, 46%, 20%);
+  --accent-3: hsl(226, 43%, 10%);
+
+  /* Sizes */
+  --size-0: -0.25rem;
+  --size-1: 0.25rem;
+  --size-2: 0.5rem;
+  --size-3: 1rem;
+  --size-4: 1.25rem;
+  --size-5: 1.5rem;
+
+  /* Borders */
+  --radius-1: 0.5rem;
+  --radius-2: 1rem;
+  --radius-round: 1e5px;
+
+  /* Breakpoints */
+  --breakpoint-1: 375px;
+  --breakpoint-2: 1440px;
+}
