@@ -2,13 +2,13 @@
 :root {
   /* Fonts */
   --font: 'Rubik', system-ui, sans-serif;
-  --font-size-1: 1.125rem;
-  --font-size-2: 1.25rem;
+  --font-size-0: 0.75rem;
+  --font-size-1: 1rem;
+  --font-size-2: 1.125rem;
+  --font-size-2: 1.5rem;
   --font-weight-1: 300;
   --font-weight-2: 400;
   --font-weight-3: 500;
-  --font-lineheight-1: 1.5;
-  --font-lineheight-2: 1.25;
 
   /* Colors */
   --surface-1: hsl(246, 80%, 60%);
@@ -23,7 +23,9 @@
   --accent-1: hsl(236, 100%, 87%);
   --accent-2: hsl(235, 45%, 61%);
   --accent-3: hsl(235, 46%, 20%);
-  --accent-3: hsl(226, 43%, 10%);
+  --accent-4: hsl(226, 43%, 10%);
+
+  --white: hsl(236, 4%, 95%);
 
   /* Sizes */
   --size-0: -0.25rem;
@@ -32,13 +34,237 @@
   --size-3: 1rem;
   --size-4: 1.25rem;
   --size-5: 1.5rem;
+  --size-6: 2rem;
 
   /* Borders */
   --radius-1: 0.5rem;
   --radius-2: 1rem;
   --radius-round: 1e5px;
 
+  /* Easing */
+  --easing-1: 0.5s ease-in-out;
+
   /* Breakpoints */
   --breakpoint-1: 375px;
   --breakpoint-2: 1440px;
+}
+
+/* Basic styles */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  block-size: 100%;
+  font-family: var(--font);
+}
+
+body {
+  min-block-size: 100%;
+  display: grid;
+  place-content: center;
+  background-color: var(--accent-4);
+}
+
+h1,
+h2,
+h3 {
+  font-weight: var(--font-weight-3);
+}
+
+img {
+  display: block;
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+a {
+  cursor: pointer;
+  touch-action: manipulation;
+  margin: var(--size-0);
+  padding: var(--size-1);
+  text-decoration: inherit;
+  text-underline-offset: 1px;
+}
+
+main {
+  display: grid;
+  gap: calc(var(--size-4) + var(--size-6));
+}
+
+/* Card styles */
+
+.card {
+  position: relative;
+  max-inline-size: var(--breakpoint-1);
+  inline-size: 50vw;
+  background-color: var(--accent-3);
+  border-radius: var(--radius-1);
+  color: var(--white);
+}
+
+.card-big > header {
+  display: flex;
+  align-items: center;
+  gap: var(--size-3);
+  padding: var(--size-5);
+  background: var(--surface-1);
+  border-radius: var(--radius-1);
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-1);
+}
+
+.description > * {
+  margin: 0;
+}
+
+.description h1 {
+  font-weight: var(--font-weight-1);
+}
+
+.description span {
+  font-size: var(--font-size-0);
+  color: var(--accent-1);
+}
+
+.card-big img {
+  inline-size: 4rem;
+  border: 3px solid var(--white);
+  border-radius: var(--radius-round);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--size-5);
+}
+
+a {
+  color: var(--accent-1);
+  transition: color var(--easing-1);
+}
+
+a.active,
+a:hover {
+  color: var(--white);
+}
+
+a > svg {
+  fill: var(--accent-1);
+  transition: fill var(--easing-1);
+}
+
+a:hover > svg {
+  fill: var(--white);
+}
+
+.card:not(.card-big) {
+  padding-block: var(--size-3);
+  padding-inline: var(--size-4);
+  line-height: 0;
+}
+
+.card:not(.card-big)::before,
+.card:not(.card-big)::after {
+  content: '';
+  position: absolute;
+  inset-block-start: calc(var(--size-6) * -1);
+  inset-block-end: 1px;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+  border-radius: var(--radius-1);
+  z-index: -1;
+}
+
+.card:not(.card-big)::after {
+  background-repeat: no-repeat;
+  background-position-x: 90%;
+}
+
+.card-1::before {
+  background-color: var(--header-1);
+}
+
+.card-1::after {
+  background-image: url('../images/icon-work.svg');
+  background-position-y: -5%;
+  background-size: 17%;
+}
+
+.card-2::before {
+  background-color: var(--header-2);
+}
+
+.card-2::after {
+  background-image: url('../images/icon-play.svg');
+  background-position-y: -5%;
+  background-size: 19%;
+}
+
+.card-3::before {
+  background-color: var(--header-3);
+}
+
+.card-3::after {
+  background-image: url('../images/icon-study.svg');
+  background-position-y: -5%;
+  background-size: 19%;
+}
+
+.card-4::before {
+  background-color: var(--header-4);
+}
+
+.card-4::after {
+  background-image: url('../images/icon-exercise.svg');
+  background-position-y: 0%;
+  background-size: 17%;
+}
+
+.card-5::before {
+  background-color: var(--header-5);
+}
+
+.card-5::after {
+  background-image: url('../images/icon-social.svg');
+  background-position-y: -7%;
+  background-size: 16%;
+}
+
+.card-6::before {
+  background-color: var(--header-6);
+}
+
+.card-6::after {
+  background-image: url('../images/icon-self-care.svg');
+  background-position-y: -5%;
+  background-size: 15%;
+}
+
+.card:not(.card-big) > header,
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h3 {
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-2);
+}
+
+.content > h2 {
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-1);
+}
+
+.content > span {
+  font-size: var(--font-size-0);
+  color: var(--accent-1);
 }
