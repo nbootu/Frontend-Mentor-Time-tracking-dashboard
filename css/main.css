@@ -148,6 +148,8 @@ h3 {
 
 /* Link styles */
 a {
+  display: flex;
+  align-items: center;
   cursor: pointer;
   touch-action: manipulation;
   margin: var(--size-0);
