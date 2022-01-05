@@ -5,7 +5,7 @@
   --font-size-0: 0.75rem;
   --font-size-1: 1rem;
   --font-size-2: 1.125rem;
-  --font-size-2: 1.5rem;
+  --font-size-3: 2.5rem;
   --font-weight-1: 300;
   --font-weight-2: 400;
   --font-weight-3: 500;
@@ -27,6 +27,55 @@
 
   --white: hsl(236, 4%, 95%);
 
+  /*
+    Gradients
+    To stop color overlapping on bottom edges
+
+  */
+  --gradient-end: var(--accent-3) 90%, var(--accent-3) 100%;
+
+  --gradient-1: linear-gradient(
+    to bottom,
+    var(--header-1) 0%,
+    var(--header-1) 90%,
+    var(--gradient-end)
+  );
+
+  --gradient-2: linear-gradient(
+    to bottom,
+    var(--header-2) 0%,
+    var(--header-2) 90%,
+    var(--gradient-end)
+  );
+
+  --gradient-3: linear-gradient(
+    to bottom,
+    var(--header-3) 0%,
+    var(--header-3) 90%,
+    var(--gradient-end)
+  );
+
+  --gradient-4: linear-gradient(
+    to bottom,
+    var(--header-4) 0%,
+    var(--header-4) 90%,
+    var(--gradient-end)
+  );
+
+  --gradient-5: linear-gradient(
+    to bottom,
+    var(--header-5) 0%,
+    var(--header-5) 90%,
+    var(--gradient-end)
+  );
+
+  --gradient-6: linear-gradient(
+    to bottom,
+    var(--header-6) 0%,
+    var(--header-6) 90%,
+    var(--gradient-end)
+  );
+
   /* Sizes */
   --size-0: -0.25rem;
   --size-1: 0.25rem;
@@ -45,7 +94,7 @@
   --easing-1: 0.5s ease-in-out;
 
   /* Breakpoints */
-  --breakpoint-1: 375px;
+  --breakpoint-1: 30ch;
   --breakpoint-2: 1440px;
 }
 
@@ -65,13 +114,8 @@ body {
   min-block-size: 100%;
   display: grid;
   place-content: center;
+  padding-block: var(--size-6);
   background-color: var(--accent-4);
-}
-
-h1,
-h2,
-h3 {
-  font-weight: var(--font-weight-3);
 }
 
 img {
@@ -80,6 +124,29 @@ img {
   block-size: auto;
 }
 
+/* Heading styles */
+h1,
+h2,
+h3 {
+  margin: 0;
+  line-height: 1.25;
+}
+
+h1 {
+  font-weight: var(--font-weight-1);
+}
+
+h2 {
+  font-size: var(--font-size-3);
+  font-weight: var(--font-weight-1);
+}
+
+h3 {
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-2);
+}
+
+/* Link styles */
 a {
   cursor: pointer;
   touch-action: manipulation;
@@ -87,62 +154,6 @@ a {
   padding: var(--size-1);
   text-decoration: inherit;
   text-underline-offset: 1px;
-}
-
-main {
-  display: grid;
-  gap: calc(var(--size-4) + var(--size-6));
-}
-
-/* Card styles */
-
-.card {
-  position: relative;
-  max-inline-size: var(--breakpoint-1);
-  inline-size: 50vw;
-  background-color: var(--accent-3);
-  border-radius: var(--radius-1);
-  color: var(--white);
-}
-
-.card-big > header {
-  display: flex;
-  align-items: center;
-  gap: var(--size-3);
-  padding: var(--size-5);
-  background: var(--surface-1);
-  border-radius: var(--radius-1);
-}
-
-.description {
-  display: flex;
-  flex-direction: column;
-  gap: var(--size-1);
-}
-
-.description > * {
-  margin: 0;
-}
-
-.description h1 {
-  font-weight: var(--font-weight-1);
-}
-
-.description span {
-  font-size: var(--font-size-0);
-  color: var(--accent-1);
-}
-
-.card-big img {
-  inline-size: 4rem;
-  border: 3px solid var(--white);
-  border-radius: var(--radius-round);
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  padding: var(--size-5);
 }
 
 a {
@@ -164,107 +175,153 @@ a:hover > svg {
   fill: var(--white);
 }
 
-.card:not(.card-big) {
-  padding-block: var(--size-3);
-  padding-inline: var(--size-4);
-  line-height: 0;
+/* Text styles */
+span {
+  font-size: var(--font-size-0);
+  color: var(--accent-1);
 }
 
-.card:not(.card-big)::before,
-.card:not(.card-big)::after {
-  content: '';
-  position: absolute;
-  inset-block-start: calc(var(--size-6) * -1);
-  inset-block-end: 1px;
-  inset-inline-start: 0;
-  inset-inline-end: 0;
+/* Main grid */
+main {
+  display: grid;
+  gap: var(--size-6);
+}
+
+/* Nav styles */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--size-5);
+}
+
+/* Card base styles */
+.card {
+  max-inline-size: var(--breakpoint-1);
+  inline-size: 50vw;
+  background-color: var(--accent-3);
   border-radius: var(--radius-1);
-  z-index: -1;
+  color: var(--white);
 }
 
-.card:not(.card-big)::after {
-  background-repeat: no-repeat;
-  background-position-x: 90%;
+/* Big card */
+.card-big > header {
+  display: flex;
+  align-items: center;
+  gap: var(--size-3);
+  padding: var(--size-5);
+  background: var(--surface-1);
+  border-radius: var(--radius-1);
 }
 
-.card-1::before {
-  background-color: var(--header-1);
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-1);
 }
 
-.card-1::after {
-  background-image: url('../images/icon-work.svg');
-  background-position-y: -5%;
-  background-size: 17%;
+.description > * {
+  margin: 0;
 }
 
-.card-2::before {
-  background-color: var(--header-2);
+.card-big img {
+  inline-size: 4rem;
+  border: 3px solid var(--white);
+  border-radius: var(--radius-round);
 }
 
-.card-2::after {
-  background-image: url('../images/icon-play.svg');
-  background-position-y: -5%;
-  background-size: 19%;
+/* Small cards */
+.card:not(.card-big) {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
-.card-3::before {
-  background-color: var(--header-3);
+/* Title bar images */
+.card:not(.card-big) > img {
+  block-size: 35px;
+  margin-inline-start: auto;
+  margin-inline-end: 12%;
+  object-fit: cover;
+  transform: scale(1.6);
 }
 
-.card-3::after {
-  background-image: url('../images/icon-study.svg');
-  background-position-y: -5%;
-  background-size: 19%;
+/* Title bar colors with hard-stop gradient */
+.card-1 {
+  background-image: var(--gradient-1);
 }
 
-.card-4::before {
-  background-color: var(--header-4);
+.card-2 {
+  background-image: var(--gradient-2);
 }
 
-.card-4::after {
-  background-image: url('../images/icon-exercise.svg');
-  background-position-y: 0%;
-  background-size: 17%;
+.card-3 {
+  background-image: var(--gradient-3);
 }
 
-.card-5::before {
-  background-color: var(--header-5);
+.card-4 {
+  background-image: var(--gradient-4);
 }
 
-.card-5::after {
-  background-image: url('../images/icon-social.svg');
-  background-position-y: -7%;
-  background-size: 16%;
+.card-5 {
+  background-image: var(--gradient-5);
 }
 
-.card-6::before {
-  background-color: var(--header-6);
+.card-6 {
+  background-image: var(--gradient-6);
 }
 
-.card-6::after {
-  background-image: url('../images/icon-self-care.svg');
-  background-position-y: -5%;
-  background-size: 15%;
+/* Small card section styles */
+.card:not(.card-big) section {
+  align-items: center;
+  flex-grow: 1;
+  inline-size: 100%;
+  padding: var(--size-4);
+  background: var(--accent-3);
+  border-radius: var(--radius-1);
+  z-index: 10;
 }
 
-.card:not(.card-big) > header,
-.content {
+/* Small card header styles */
+.card:not(.card-big) header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-block-end: var(--size-4);
 }
 
-h3 {
-  font-size: var(--font-size-1);
-  font-weight: var(--font-weight-2);
-}
+/* Desktop size */
+@media screen and (min-width: 1000px) {
+  /* Defining cards narrower */
+  :root {
+    --breakpoint-1: 20ch;
+  }
 
-.content > h2 {
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-1);
-}
+  /* Grid */
+  main {
+    max-inline-size: var(--breakpoint-2);
+    inline-size: 75%;
+    grid-template-columns: repeat(4, 1fr);
+  }
 
-.content > span {
-  font-size: var(--font-size-0);
-  color: var(--accent-1);
+  /* Place big card on grid an change direction */
+  .card-big {
+    grid-row: 1 / span 2;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Let big card header grow, widen gap, realign content */
+  .card-big > header {
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--size-6);
+  }
+
+  /* Let navigation shrink, change direction, define gap */
+  nav {
+    flex-grow: 0;
+    flex-direction: column;
+    gap: var(--size-3);
+  }
 }
