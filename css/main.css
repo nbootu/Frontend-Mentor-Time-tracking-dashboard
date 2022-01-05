@@ -94,7 +94,7 @@
   --easing-1: 0.5s ease-in-out;
 
   /* Breakpoints */
-  --breakpoint-1: 30ch;
+  --breakpoint-1: 35ch;
   --breakpoint-2: 1440px;
 }
 
