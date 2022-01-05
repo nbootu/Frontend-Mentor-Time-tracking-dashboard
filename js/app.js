@@ -38,8 +38,8 @@ nav.addEventListener('click', (e) => {
   timespan = e.target.dataset.timespan;
 
   // Get all H2 and corresponding spans
-  const cardHours = document.querySelectorAll('h2');
-  const cardLastHours = document.querySelectorAll('h2 + span');
+  const cardHours = document.querySelectorAll('h3');
+  const cardLastHours = document.querySelectorAll('h3 + span');
 
   // Manipulate data in HTML
   data[timespan].current.forEach((elem, idx) => {
