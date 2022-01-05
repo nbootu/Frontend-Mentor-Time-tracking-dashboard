@@ -137,13 +137,13 @@ h1 {
 }
 
 h2 {
-  font-size: var(--font-size-3);
-  font-weight: var(--font-weight-1);
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-2);
 }
 
 h3 {
-  font-size: var(--font-size-1);
-  font-weight: var(--font-weight-2);
+  font-size: var(--font-size-3);
+  font-weight: var(--font-weight-1);
 }
 
 /* Link styles */
