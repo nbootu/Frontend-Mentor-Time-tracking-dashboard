@@ -24,6 +24,8 @@ const nav = document.querySelector('nav');
 
 // OnClick event
 nav.addEventListener('click', (e) => {
+  e.preventDefault();
+
   // Guard clause
   if (!e.target.dataset.timespan) return;
 
